@@ -17,7 +17,7 @@ post '/' do
   @name  = params[:name]
   @email = params[:email]
 
-  # add email sending code here
+  Pony.mail(:to => @email, :subject => "Thank you for subscribing", :body=> erb(:email,:layout=>false))
 
   erb :thanks
 end
